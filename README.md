@@ -1,7 +1,7 @@
 # Match3
 
 ## Project
-The program is an implementation of match 3 game using PyQt. User can choose board size and block types number.
+The program is an implementation of match 3 game using PyQt. User can choose board size and block types number. Created as university project.
 
 ## Requirements
 Application uses Python 3.7
@@ -12,6 +12,7 @@ Libraries:
 - time
 - copy
 - sys
+- pytest
 
 ## Setup
 ```

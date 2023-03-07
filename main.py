@@ -6,9 +6,6 @@ from guiGame import Ui_GameWindow
 
 
 class GameWindow(QMainWindow):
-    """
-    Klasa odpowiada za zbudowanie okienka z planszą gry
-    """
     def __init__(self, parent=None, height=8, width=8, types=7):
         super().__init__(parent)
         self.ui = Ui_GameWindow(height, width, types)
@@ -19,9 +16,6 @@ class GameWindow(QMainWindow):
 
 
 class DopasowanieMatch3Window(QMainWindow):
-    """
-    Klasa odpowiada za uruchomienie okienka z parametrami gry
-    """
     def __init__(self, parent=None):
         super().__init__(parent)
         self.ui = guiBoard()

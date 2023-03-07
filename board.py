@@ -159,18 +159,15 @@ class Board:
         return list(set(placesList))
 
     @staticmethod
-    def findSeries(lista, columnChecked=None, rowChecked=None) -> list:
-        """
-        Zwraca listę współrzędnych bloków do usunięcia z danego rzędu
-        """
+    def findSeries(lista, columnToCheck=None, rowToCheck=None) -> list:
         listToRemove = Board.findThrees(lista)
         pointsList = []
-        if columnChecked is not None:
+        if columnToCheck is not None:
             for row in listToRemove:
-                pointsList.append((row, columnChecked))
-        if rowChecked is not None:
+                pointsList.append((row, columnToCheck))
+        if rowToCheck is not None:
             for column in listToRemove:
-                pointsList.append((rowChecked, column))
+                pointsList.append((rowToCheck, column))
         return pointsList
 
     @staticmethod
@@ -186,25 +183,19 @@ class Board:
 
     @staticmethod
     def columnsOnRows(matrix) -> list:
-        """
-        Zmienia listę wierszy na listę kolumn danej matrixy
-        """
         return Board.rowsOnColumns(matrix)
 
     @staticmethod
     def findThreesOnBoard(matrix) -> list:
-        """
-        Funkcja zwraca listę współrzędnych bloków do usunięcia
-        """
         listToRemove = []
         rowNumber = 0
         for row in matrix:
-            listToRemove += Board.findSeries(row, rowChecked=rowNumber)
+            listToRemove += Board.findSeries(row, rowToCheck=rowNumber)
             rowNumber += 1
         columns = Board.rowsOnColumns(matrix)
         columnNumber = 0
         for kolumna in columns:
-            listToRemove += Board.findSeries(kolumna, columnChecked=columnNumber)
+            listToRemove += Board.findSeries(kolumna, columnToCheck=columnNumber)
             columnNumber += 1
         if listToRemove == []:
             return None
